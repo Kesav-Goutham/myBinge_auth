@@ -1,5 +1,5 @@
 # Use a base image with Java and Maven installed
-FROM maven:3.8.4-openjdk-21 AS build
+FROM maven:3.8.4-openjdk-17 AS build
 WORKDIR /app
 
 # Copy the Maven configuration files and build the application
@@ -19,3 +19,4 @@ EXPOSE 8080
 
 # Define the command to run your application
 CMD ["java", "-jar", "app.jar"]
+
