@@ -1,5 +1,5 @@
 # Use a base image with Java and Maven installed
-FROM maven:3.8.4-openjdk-17 AS build
+FROM maven:3.8.8-eclipse-temurin-21-alpine AS build
 WORKDIR /app
 
 # Copy the Maven configuration files and build the application
@@ -8,7 +8,7 @@ COPY src src
 RUN mvn clean package -DskipTests
 
 # Create a lightweight container for the application
-FROM openjdk:17-jdk-slim
+FROM openjdk:21-jdk-slim
 WORKDIR /app
 
 # Copy the built JAR file from the build stage
